@@ -31,7 +31,11 @@ function fillCell()
     this.classList.add(currentTurn);
 
     if(checekForWin()){
-        const restart = confirm(currentTurn.toUpperCase() + " is the Winner! Restart?");
+        //const restart = confirm(currentTurn.toUpperCase() + " is the Winner! Restart?");
+        //const restart = confirm( " is the Winner! Restart?");
+        //
+        span[0].innerText = currentTurn.toUpperCase()+" Is the winner";
+        span[0].style.color ="lime";//
         if(restart) setup();
     }else if(checkForDraw())
     {
