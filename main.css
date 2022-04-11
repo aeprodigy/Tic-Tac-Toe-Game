@@ -1,39 +1,151 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Tic-tac-Toe</title>
-    <link rel="stylesheet" href="main.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Poppins:wght@600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
-</head>
-<body>
+:root
+{
+    --primary:#8A4FFF;
+    --dark: #131A26;
+    --grey:#CCC;
+    --light:#EEE;
 
-    <header>
-        <h1>mike's Tic-Tac-Toe</h1>
-        
-    </header>
-    <span></span>
-    <main>
-        <section class="board " id="board">
-            <div class="cell "></div>
-            <div class="cell "></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-        </section>
-    </main>
+}
+*
+{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body
+{
+    background: url("picbg.jpg");
+    background-color: var(--light);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
-    <script src="main.js"></script>
-</body>
-</html>
+header
+{
+    background-color: var(--dark);
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid red;
+}
+
+header h1
+{
+    color: #fff;
+    font-family: 'Odibee Sans', cursive;
+    font-size: 64px;
+    text-transform: uppercase;
+    text-shadow: -4px 1px red;
+}
+ span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 0%;
+    font-size: 24px; 
+    font-family: 'Poppins', sans-serif;
+ }
+main
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 0%;
+}
+.board
+{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+}
+.cell
+{
+    position: relative;
+    border: 1px solid var(--dark);
+    width: 100px;
+    padding-top: 100%;
+    cursor: pointer;
+}
+.cell:nth-child(1),
+.cell:nth-child(2),
+.cell:nth-child(3)
+{
+    border-top: none;
+}
+.cell:nth-child(1),
+.cell:nth-child(4),
+.cell:nth-child(7)
+{
+    border-left: none;
+}
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:nth-child(9)
+{
+    border-right: none;
+}
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9)
+{
+    border-bottom: none;
+}
+
+.cell.x,
+.cell.o
+{
+  cursor: not-allowed;  
+}
+
+.cell.x::after,
+.cell.x::before,
+.board.turn-x .cell:not(.x):not(.o):hover::after,
+.board.turn-x .cell:not(.x):not(.o):hover::before
+{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 50px;
+    background-color: red;
+    border-radius: 99px;
+}
+
+.cell.x::before,
+.board.turn-x .cell:not(.x):not(.o):hover::before
+{
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.cell.x::after,
+.board.turn-x .cell:not(.x):not(.o):hover::after
+{
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.cell.o::before,
+.board.turn-o .cell:not(.x):not(.o):hover::before
+{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 10px solid var(--dark);
+    border-radius: 50%;
+}
+.board.turn-x .cell:not(.x):not(.o):hover::after,
+.board.turn-x .cell:not(.x):not(.o):hover::before
+{
+   background-color: var(--grey);
+}
+.board.turn-o .cell:not(.x):not(.o):hover::before
+{
+    border-color: var(--grey);
+}
