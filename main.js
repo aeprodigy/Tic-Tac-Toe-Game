@@ -1,4 +1,5 @@
 const board_el = document.querySelector('#board');
+const span = document.getElementsByTagName("span");
 const cell_els = document.querySelectorAll('#board .cell');
 const combinations =[
     [0,1,2],
@@ -31,7 +32,6 @@ function fillCell()
     this.classList.add(currentTurn);
 
     if(checekForWin()){
-        //const restart = confirm(currentTurn.toUpperCase() + " is the Winner! Restart?");
         //const restart = confirm( " is the Winner! Restart?");
         //
         span[0].innerText = currentTurn.toUpperCase()+" Is the winner";
@@ -41,6 +41,7 @@ function fillCell()
     {
         const restart = confirm( " This is a Draw! Restart?");
         if(restart) setup();
+
     }
     else
     {
