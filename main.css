@@ -34,7 +34,8 @@ header
 header h1
 {
     color: #fff;
-    font-size: 40px;
+    font-family: 'Odibee Sans', cursive;
+    font-size: 64px;
     text-transform: uppercase;
     text-shadow: -4px 1px red;
 }
@@ -44,6 +45,7 @@ header h1
     justify-content: center;
     flex: 1 1 0%;
     font-size: 24px; 
+    font-family: 'Poppins', sans-serif;
  }
 main
 {
