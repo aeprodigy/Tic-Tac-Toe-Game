@@ -14,6 +14,7 @@
 }
 body
 {
+    background: url("picbg.jpg");
     background-color: var(--light);
     display: flex;
     flex-direction: column;
@@ -37,6 +38,13 @@ header h1
     text-transform: uppercase;
     text-shadow: -4px 1px red;
 }
+ span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 0%;
+    font-size: 24px; 
+ }
 main
 {
     display: flex;
