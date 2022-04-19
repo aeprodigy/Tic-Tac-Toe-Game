@@ -35,7 +35,7 @@ function fillCell()
         
         //
         span[0].innerText = currentTurn.toUpperCase()+" Is the winner";
-        span[0].style.color ="lime";//
+        span[0].style.color ="white";//
         if(restart) setup();
     }else if(checkForDraw())
     {
